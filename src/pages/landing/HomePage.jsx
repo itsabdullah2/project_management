@@ -1,7 +1,12 @@
-import Home from "../../";
+import { Home, Navbar } from "../../";
 
 const HomePage = () => {
-  return <Home />;
+  return (
+    <>
+      <Navbar />
+      <Home />
+    </>
+  );
 };
 
 export default HomePage;
