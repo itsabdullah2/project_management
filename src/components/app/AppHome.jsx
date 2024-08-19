@@ -1,5 +1,12 @@
+import { AppNavbar, FilterItems } from "../../";
+
 const AppHome = () => {
-  return <div>AppHome</div>;
+  return (
+    <div className="h-screen bg-veryDarkGray text-offWhite flex-1">
+      <AppNavbar />
+      <FilterItems />
+    </div>
+  );
 };
 
 export default AppHome;
