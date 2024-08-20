@@ -1,11 +1,11 @@
-import { AppNavbar, FilterItems } from "../../";
+import { Calender, Sidebar } from "../../";
 
 const CalenderPage = () => {
   return (
-    <>
-      <AppNavbar />
-      <FilterItems />
-    </>
+    <div className="flex">
+      <Sidebar />
+      <Calender />
+    </div>
   );
 };
 
