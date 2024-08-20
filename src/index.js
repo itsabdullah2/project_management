@@ -11,6 +11,8 @@ import Sidebar from "./components/app/Sidebar";
 import AppNavbar from "./components/app/AppNavbar";
 import CalenderPage from "./pages/app/CalenderPage";
 import FilterItems from "./components/app/FilterItems";
+import Calender from "./components/app/Calender";
+import CalenderStructure from "./components/app/CalenderStructure";
 
 // Import Data
 import { styleLinksInNav, hoverStyling } from "./data/dummy";
@@ -28,4 +30,6 @@ export {
   AppNavbar,
   CalenderPage,
   FilterItems,
+  Calender,
+  CalenderStructure,
 };
