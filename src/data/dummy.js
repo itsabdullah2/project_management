@@ -9,3 +9,9 @@ export const styleOfLogo =
 
 export const stylingPath =
   "before:absolute before:left-0 before:-bottom-[30px] before:w-[2px] before:h-[25px] before:bg-gray after:absolute after:left-[2px] after:-bottom-[30px] after:w-[30px] after:h-[2px] after:bg-gray";
+
+export const styleFilterSection =
+  "text-offWhite bg-gray border rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-2 active:scale-[0.9] duration-300 select-none";
+
+export const stylePseudoInLi =
+  "before:absolute before:left-0 before:-bottom-[20px] before:bg-gray before:w-full before:h-2";
