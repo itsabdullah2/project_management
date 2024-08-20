@@ -9,7 +9,7 @@ const AppNavbar = () => {
   const handleSearch = () => {};
 
   return (
-    <div className="flex justify-between py-4 px-6">
+    <div className="flex justify-between py-4 ">
       <div className={`flex gap-4 relative ${stylingPath}`}>
         <h2 className="text-offWhite text-3xl font-bold">Welcome, User</h2>
         <span className="text-gray text-[18px] self-end">
