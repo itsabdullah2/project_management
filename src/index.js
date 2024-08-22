@@ -13,6 +13,11 @@ import CalenderPage from "./pages/app/CalenderPage";
 import FilterItems from "./components/app/FilterItems";
 import Calender from "./components/app/Calender";
 import CalenderStructure from "./components/app/CalenderStructure";
+import StateBar from "./components/app/StateBar";
+import CalendarTaskPopup from "./components/app/CalendarTaskPopup";
+
+// Import Context
+import { useAppState } from "./context/AppStateContext";
 
 // Import Data
 import { styleLinksInNav, hoverStyling } from "./data/dummy";
@@ -32,4 +37,7 @@ export {
   FilterItems,
   Calender,
   CalenderStructure,
+  StateBar,
+  useAppState,
+  CalendarTaskPopup,
 };
