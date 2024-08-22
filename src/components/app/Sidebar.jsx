@@ -1,39 +1,48 @@
-import { IoMenu } from "react-icons/io5";
+import {
+  IoMenu,
+  IoSettingsOutline,
+  IoLogInOutline,
+  IoLogOutOutline,
+} from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { styleOfLogo } from "../../data/dummy";
-
-const liStyling = "text-[17px] text-slate-500 font-medium";
-const titleStyling = "text-offWhite font-medium text-[18px] mb-2";
+import {
+  styleOfLogo,
+  liStyling,
+  titleStyling,
+  pagesLinks,
+} from "../../data/dummy";
+import { useAppState } from "../../";
 
 const Sidebar = ({ className }) => {
+  const { isSidebarOpen, handleSidebar } = useAppState();
+
   return (
     <div
-      className={`${className} w-[300px] bg-darkGray text-offWhite p-5 h-screen flex flex-col`}
+      className={`${className} transform transition-all duration-300 ${
+        isSidebarOpen ? "block col-span-2" : "col-span-1"
+      } bg-darkGray text-offWhite p-5 h-screen flex flex-col`}
     >
       <div className="flex-1">
         <div className="flex items-center justify-between text-lightGray mb-10">
           <span className={`${styleOfLogo}`} />
-          <IoMenu size={30} />
+          <IoMenu
+            size={30}
+            className="cursor-pointer hover:text-offWhite duration-300"
+            onClick={handleSidebar}
+          />
         </div>
 
         <div className="border border-lightGray rounded-[10px] p-3 mb-10">
           <h3 className={`${titleStyling}`}>Pages</h3>
           <ul className="flex flex-col gap-2">
-            <Link to="/app/calender">
-              <li className={`${liStyling}`}>Calender</li>
-            </Link>
-            <Link to="/app/board">
-              <li className={`${liStyling}`}>Board</li>
-            </Link>
-            <Link to="/app/list">
-              <li className={`${liStyling}`}>List</li>
-            </Link>
-            <Link to="/app/My-tasks">
-              <li className={`${liStyling}`}>My Tasks</li>
-            </Link>
-            <Link to="/app/inbox">
-              <li className={`${liStyling}`}>Inbox</li>
-            </Link>
+            {pagesLinks.map((pageLink) => (
+              <Link to={pageLink.link} key={pageLink.name}>
+                <li className={`${liStyling}`}>
+                  {<pageLink.icon />}
+                  <span>{pageLink.name}</span>
+                </li>
+              </Link>
+            ))}
           </ul>
         </div>
 
@@ -48,16 +57,22 @@ const Sidebar = ({ className }) => {
           />
         </div>
 
-        {/* Calender will be here */}
+        {/* Calender will display here */}
       </div>
 
       <ul>
-        <li className={`${liStyling}`}>
-          <Link to="#">Settings</Link>
-        </li>
-        <li className={`${liStyling}`}>
-          <Link to="#">LogIn</Link>
-        </li>
+        <Link to="#">
+          <li className={`${liStyling}`}>
+            <IoSettingsOutline />
+            <span>Settings</span>
+          </li>
+        </Link>
+        <Link to="#">
+          <li className={`${liStyling}`}>
+            <IoLogInOutline />
+            <span>LogIn</span>
+          </li>
+        </Link>
       </ul>
     </div>
   );
