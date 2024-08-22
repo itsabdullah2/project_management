@@ -1,3 +1,6 @@
+import { IoCalendar } from "react-icons/io5";
+import { FaFolder, FaList, FaTasks, FaInbox } from "react-icons/fa";
+
 export const styleLinksInNav =
   "text-[17px] font-medium hover:text-purple duration-300 text-offWhite before:left-0 before:bottom-[-3px] before:w-0 before:h-[3px] before:bg-purple before:rounded hover:before:w-full before:absolute relative before:duration-300";
 
@@ -15,3 +18,39 @@ export const styleFilterSection =
 
 export const stylePseudoInLi =
   "before:absolute before:left-0 before:-bottom-[20px] before:bg-gray before:w-full before:h-2";
+
+export const liStyling =
+  "text-[17px] text-slate-500 font-medium flex items-center gap-2";
+
+export const titleStyling = "text-offWhite font-medium text-[18px] mb-2";
+
+export const inputStyles =
+  "px-2 py-3 rounded-[10px] border border-lightGray w-full focus:outline-none focus:placeholder:opacity-0 placeholder:duration-300 placeholder:text-sm bg-transparent";
+
+export const pagesLinks = [
+  {
+    link: "/app/calender",
+    icon: IoCalendar,
+    name: "Calendar",
+  },
+  {
+    link: "/app/board",
+    icon: FaFolder,
+    name: "Board",
+  },
+  {
+    link: "/app/list",
+    icon: FaList,
+    name: "List",
+  },
+  {
+    link: "/app/my-tasks",
+    icon: FaTasks,
+    name: "My Tasks",
+  },
+  {
+    link: "/app/inbox",
+    icon: FaInbox,
+    name: "Inbox",
+  },
+];
