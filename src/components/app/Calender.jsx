@@ -1,11 +1,24 @@
-import { AppNavbar, FilterItems, CalenderStructure } from "../../";
+import {
+  AppNavbar,
+  FilterItems,
+  CalenderStructure,
+  useAppState,
+  CalendarTaskPopup,
+} from "../../";
 
 const Calender = () => {
+  const { isPopupOpen, isSidebarOpen } = useAppState();
+
   return (
-    <div className="flex-1 h-screen bg-veryDarkGray px-6">
+    <div
+      className={`${
+        isSidebarOpen ? "col-span-10" : "col-span-11"
+      } h-screen bg-veryDarkGray px-6`}
+    >
       <AppNavbar />
       <FilterItems />
       <CalenderStructure />
+      {isPopupOpen && <CalendarTaskPopup />}
     </div>
   );
 };
