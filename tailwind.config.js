@@ -9,6 +9,10 @@ const colors = {
   black: "#000",
   white: "#fff",
   offWhite: "#FBFBFB",
+  high: "rgb(220 38 38)",
+  normal: "rgb(22 163 74)",
+  medium: "rgb(234 88 12)",
+  low: "rgb(37 99 235)",
 };
 
 export default {
