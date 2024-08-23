@@ -1,4 +1,4 @@
-import { IoCalendar } from "react-icons/io5";
+import { IoCalendar, IoBookmarkOutline } from "react-icons/io5";
 import { FaFolder, FaList, FaTasks, FaInbox } from "react-icons/fa";
 
 export const styleLinksInNav =
@@ -52,5 +52,51 @@ export const pagesLinks = [
     link: "/app/inbox",
     icon: FaInbox,
     name: "Inbox",
+  },
+];
+
+export const statuses = [
+  {
+    name: "In Queue",
+    color: "red-600",
+  },
+  {
+    name: "On Progress",
+    color: "orange-600",
+  },
+  {
+    name: "Testing",
+    color: "blue-600",
+  },
+  {
+    name: "Completed",
+    color: "green-600",
+  },
+  {
+    name: "Closed",
+    color: "gray",
+  },
+];
+
+export const priorities = [
+  {
+    name: "High",
+    icon: IoBookmarkOutline,
+    color: "red-600",
+  },
+  {
+    name: "Medium",
+    icon: IoBookmarkOutline,
+    color: "orange-600",
+  },
+  {
+    name: "Normal",
+    icon: IoBookmarkOutline,
+    color: "green-600",
+  },
+  {
+    name: "Low",
+    icon: IoBookmarkOutline,
+    color: "blue-600",
   },
 ];
