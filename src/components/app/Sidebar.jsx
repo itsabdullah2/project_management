@@ -19,7 +19,7 @@ const Sidebar = ({ className }) => {
   return (
     <div
       className={`${className} transform transition-all duration-300 ${
-        isSidebarOpen ? "block col-span-2" : "col-span-1"
+        isSidebarOpen ? " col-span-2" : "col-span-1"
       } bg-darkGray text-offWhite p-5 h-screen flex flex-col`}
     >
       <div className="flex-1">
