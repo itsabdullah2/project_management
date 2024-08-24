@@ -8,10 +8,10 @@ export const AppStateProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isPriorityOpen, setIsPriorityOpen] = useState(false);
   const [selectedPriority, setSelectedPriority] = useState("Select Priority");
-  const [priorityColor, setPriorityColor] = useState("lightGray");
+  const [priorityColor, setPriorityColor] = useState("");
   const [isStatusOpen, setIsStatusOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("Select Status");
-  const [statusColor, setStatusColor] = useState("lightGray");
+  const [statusColor, setStatusColor] = useState("");
 
   const handleOpenPopup = () => {
     setIsPopupOpen((prev) => !prev);
@@ -41,6 +41,14 @@ export const AppStateProvider = ({ children }) => {
     setStatusColor(color);
   };
 
+  const handleInitialState = () => {
+    handleOpenPopup();
+    handleStatusColor("");
+    handlePriorityColor("");
+    handleSelectedPriority("Select Priority");
+    handleSelectedStatus("Select Status");
+  };
+
   return (
     <AppStateContext.Provider
       value={{
@@ -62,6 +70,7 @@ export const AppStateProvider = ({ children }) => {
         isStatusOpen,
         selectedStatus,
         statusColor,
+        handleInitialState,
       }}
     >
       {children}
