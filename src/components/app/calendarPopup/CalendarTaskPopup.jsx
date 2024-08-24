@@ -1,11 +1,15 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { SelectPriority, SelectStatus, useAppState } from "../../../";
-import { inputStyles } from "../../../data/dummy";
+import { inputStyles, popupBtnStyle, dropdownBtn } from "../../../data/dummy";
+import { addTitle, addDescription } from "../../../store";
 
 const CalendarTaskPopup = () => {
+  const [value, setValue] = useState(null);
+  const dispatch = useDispatch();
   const {
     isPopupOpen,
-    handleOpenPopup,
     handlePriorityPopup,
     isPriorityOpen,
     selectedPriority,
@@ -14,7 +18,19 @@ const CalendarTaskPopup = () => {
     selectedStatus,
     statusColor,
     handleStatusPopup,
+    handleInitialState,
   } = useAppState();
+  const { title } = useSelector((state) => state.form.title);
+  const { description } = useSelector((state) => state.form.description);
+
+  const handleAddTitle = (event) => {
+    const result = dispatch(addTitle(event.target.value));
+    console.log(result);
+  };
+  const handleAddDescription = (event) => {
+    const result = dispatch(addDescription(event.target.value));
+    console.log(result);
+  };
 
   return (
     <>
@@ -32,6 +48,8 @@ const CalendarTaskPopup = () => {
                   id="title"
                   placeholder="Add project name"
                   className={`${inputStyles}`}
+                  value={title}
+                  onChange={handleAddTitle}
                 />
               </div>
 
@@ -45,6 +63,8 @@ const CalendarTaskPopup = () => {
                   placeholder="Add project description"
                   className={`${inputStyles}`}
                   autoComplete="off"
+                  value={description}
+                  onChange={handleAddDescription}
                 />
               </div>
 
@@ -69,7 +89,7 @@ const CalendarTaskPopup = () => {
                 <div className="flex-1 flex flex-col gap-1 relative">
                   <div>Priority</div>
                   <button
-                    className={`flex items-center justify-between text-sm text-lightGray text-left border border-${priorityColor} rounded-[10px] py-2 px-3 active:scale-[0.9] duration-300`}
+                    className={`${dropdownBtn} border-${priorityColor}`}
                     onClick={handlePriorityPopup}
                   >
                     <span>{selectedPriority}</span>
@@ -85,7 +105,7 @@ const CalendarTaskPopup = () => {
                 <div className="flex-1 flex flex-col gap-1 relative">
                   <div>Status</div>
                   <button
-                    className={`flex items-center justify-between text-sm text-lightGray text-left border border-${statusColor} rounded-[10px] py-2 px-3 active:scale-[0.9] duration-300`}
+                    className={`${dropdownBtn} border-${statusColor} `}
                     onClick={handleStatusPopup}
                   >
                     <span>{selectedStatus}</span>
@@ -102,12 +122,15 @@ const CalendarTaskPopup = () => {
 
             <div className="ml-auto flex items-center gap-4 mt-12 justify-end">
               <button
-                className="shrink-1 py-2 px-3 border text-offWhite border-purple rounded-[10px] active:scale-[0.9] duration-300"
-                onClick={handleOpenPopup}
+                className={`${popupBtnStyle}`}
+                onClick={handleInitialState}
               >
                 Cancel
               </button>
-              <button className="shrink-1 py-2 px-3 border text-offWhite bg-purple rounded-[10px] border-purple active:scale-[0.9] duration-300">
+              <button
+                className={`bg-purple ${popupBtnStyle}`}
+                onClick={handleInitialState}
+              >
                 Save
               </button>
             </div>
