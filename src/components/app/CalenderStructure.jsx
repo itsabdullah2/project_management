@@ -37,10 +37,8 @@ const CalenderStructure = () => {
               </span>
             </li>
           </ul>
-          <span className="text-purple font-bold text-[15px] cursor-pointer select-none">
-            Show weekends
-          </span>
         </div>
+        <div className="flex items-center gap-2 mt-10 px-5"></div>
       </div>
 
       <div className="flex items-center justify-between gap-2">
