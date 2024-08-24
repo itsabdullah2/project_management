@@ -13,14 +13,15 @@ const SelectPriority = () => {
         {priorities.map((priority) => (
           <li
             key={priority.name}
-            className={`text-${priority.color} flex items-center gap-3 cursor-pointer`}
+            className={`flex items-center gap-3 cursor-pointer`}
             onClick={() => {
               handlePriorityPopup();
               handleSelectedPriority(priority.name);
               handlePriorityColor(priority.color);
+              console.log(priority.color);
             }}
           >
-            {<priority.icon />}
+            {<priority.icon className={`text-${priority.color}`} />}
             <span className={`text-lightGray text-[15px]`}>
               {priority.name}
             </span>
