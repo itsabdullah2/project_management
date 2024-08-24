@@ -25,7 +25,13 @@ export const liStyling =
 export const titleStyling = "text-offWhite font-medium text-[18px] mb-2";
 
 export const inputStyles =
-  "px-2 py-3 rounded-[10px] border border-lightGray w-full focus:outline-none focus:placeholder:opacity-0 placeholder:duration-300 placeholder:text-sm bg-transparent";
+  "px-2 py-3 rounded-[10px] border border-lightGray w-full focus:outline-none focus:placeholder:opacity-0 placeholder:duration-300 placeholder:text-sm bg-transparent text-sm";
+
+export const popupBtnStyle =
+  "py-2 px-3 border text-offWhite border-purple rounded-[10px] active:scale-[0.9] duration-300";
+
+export const dropdownBtn =
+  "flex items-center justify-between text-sm text-lightGray text-left border rounded-[10px] py-2 px-3 active:scale-[0.9] duration-300";
 
 export const pagesLinks = [
   {
@@ -58,19 +64,19 @@ export const pagesLinks = [
 export const statuses = [
   {
     name: "In Queue",
-    color: "red-600",
+    color: "high",
   },
   {
     name: "On Progress",
-    color: "orange-600",
+    color: "medium",
   },
   {
     name: "Testing",
-    color: "blue-600",
+    color: "low",
   },
   {
     name: "Completed",
-    color: "green-600",
+    color: "normal",
   },
   {
     name: "Closed",
@@ -82,21 +88,21 @@ export const priorities = [
   {
     name: "High",
     icon: IoBookmarkOutline,
-    color: "red-600",
+    color: "high",
   },
   {
     name: "Medium",
     icon: IoBookmarkOutline,
-    color: "orange-600",
+    color: "medium",
   },
   {
     name: "Normal",
     icon: IoBookmarkOutline,
-    color: "green-600",
+    color: "normal",
   },
   {
     name: "Low",
     icon: IoBookmarkOutline,
-    color: "blue-600",
+    color: "low",
   },
 ];
