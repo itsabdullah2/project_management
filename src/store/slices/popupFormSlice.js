@@ -17,8 +17,12 @@ const popupFormSlice = createSlice({
     addDescription(state, action) {
       state.description = action.payload;
     },
-    setPriority(state, action) {},
-    setStatus(state, action) {},
+    setPriority(state, action) {
+      state.priority = action.payload;
+    },
+    setStatus(state, action) {
+      state.status = action.payload;
+    },
   },
 });
 
