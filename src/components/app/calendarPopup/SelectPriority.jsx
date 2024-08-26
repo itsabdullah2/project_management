@@ -1,9 +1,16 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useAppState } from "../../..";
 import { priorities } from "../../../data/dummy";
+import { setPriority } from "../../../store";
 
 const SelectPriority = () => {
+  const dispatch = useDispatch();
   const { handlePriorityPopup, handleSelectedPriority, handlePriorityColor } =
     useAppState();
+
+  const { priority } = useSelector((state) => state.form.priority);
+
+  console.log(priority);
 
   return (
     <div
@@ -18,7 +25,6 @@ const SelectPriority = () => {
               handlePriorityPopup();
               handleSelectedPriority(priority.name);
               handlePriorityColor(priority.color);
-              console.log(priority.color);
             }}
           >
             {<priority.icon className={`text-${priority.color}`} />}
