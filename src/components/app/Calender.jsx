@@ -4,6 +4,7 @@ import {
   CalenderStructure,
   useAppState,
   CalendarTaskPopup,
+  WorkingOnIt,
 } from "../../";
 
 const Calender = () => {
@@ -13,12 +14,13 @@ const Calender = () => {
     <div
       className={`${
         isSidebarOpen ? "col-span-10" : "col-span-11"
-      } h-screen bg-veryDarkGray px-6`}
+      } h-screen bg-veryDarkGray px-6 relative`}
     >
       <AppNavbar />
       <FilterItems />
-      <CalenderStructure />
-      {isPopupOpen && <CalendarTaskPopup />}
+      {/* <CalenderStructure /> */}
+      {/* {isPopupOpen && <CalendarTaskPopup />} */}
+      <WorkingOnIt />
     </div>
   );
 };

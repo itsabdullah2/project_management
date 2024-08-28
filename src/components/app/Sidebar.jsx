@@ -49,11 +49,11 @@ const Sidebar = ({ className }) => {
         <div className="border border-lightGray rounded-[10px] p-3 mb-10">
           <h3 className={`${titleStyling}`}>Progress</h3>
           <div className="flex items-center justify-between">
-            <span className="text-[17px] text-offWhite">50%</span>
-            <span className="text-xs text-offWhite">3/6 tasks done</span>
+            <span className="text-[17px] text-offWhite">0%</span>
+            <span className="text-xs text-offWhite">0/0 tasks done</span>
           </div>
           <span
-            className={`block bg-veryDarkGray h-[5px] w-full mt-2 rounded-xl relative before:absolute before:h-full before:w-[50%] before:bg-purple before:left-0 before:top-0 overflow-hidden`}
+            className={`block bg-veryDarkGray h-[5px] w-full mt-2 rounded-xl relative before:absolute before:h-full before:w-0 before:bg-purple before:left-0 before:top-0 overflow-hidden`}
           />
         </div>
 

@@ -38,7 +38,7 @@ const CalenderStructure = () => {
             </li>
           </ul>
         </div>
-        <div className="flex items-center gap-2 mt-10 px-5"></div>
+        <div className="grid grid-cols-10 gap-2 mt-10 px-5"></div>
       </div>
 
       <div className="flex items-center justify-between gap-2">
