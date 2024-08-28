@@ -1,36 +1,33 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
-import { SelectPriority, SelectStatus, useAppState } from "../../../";
+import {
+  SelectPriority,
+  SelectStatus,
+  useAppState,
+  useFormData,
+} from "../../../";
 import { inputStyles, popupBtnStyle, dropdownBtn } from "../../../data/dummy";
-import { addTitle, addDescription } from "../../../store";
 
 const CalendarTaskPopup = () => {
-  const [value, setValue] = useState(null);
-  const dispatch = useDispatch();
+  const {
+    priorityName,
+    statusColor,
+    statusName,
+    title,
+    description,
+    priorityColor,
+    handleAddTitle,
+    handleAddDescription,
+    handleReset,
+    handleSave,
+  } = useFormData();
   const {
     isPopupOpen,
     handlePriorityPopup,
     isPriorityOpen,
-    selectedPriority,
-    priorityColor,
     isStatusOpen,
-    selectedStatus,
-    statusColor,
     handleStatusPopup,
-    handleInitialState,
+    handleOpenPopup,
   } = useAppState();
-  const { title } = useSelector((state) => state.form.title);
-  const { description } = useSelector((state) => state.form.description);
-
-  const handleAddTitle = (event) => {
-    const result = dispatch(addTitle(event.target.value));
-    console.log(result);
-  };
-  const handleAddDescription = (event) => {
-    const result = dispatch(addDescription(event.target.value));
-    console.log(result);
-  };
 
   return (
     <>
@@ -92,7 +89,7 @@ const CalendarTaskPopup = () => {
                     className={`${dropdownBtn} border-${priorityColor}`}
                     onClick={handlePriorityPopup}
                   >
-                    <span>{selectedPriority}</span>
+                    <span>{priorityName}</span>
                     {isPriorityOpen ? (
                       <FaCaretDown size={20} />
                     ) : (
@@ -108,7 +105,7 @@ const CalendarTaskPopup = () => {
                     className={`${dropdownBtn} border-${statusColor} `}
                     onClick={handleStatusPopup}
                   >
-                    <span>{selectedStatus}</span>
+                    <span>{statusName}</span>
                     {isStatusOpen ? (
                       <FaCaretDown size={20} />
                     ) : (
@@ -120,16 +117,23 @@ const CalendarTaskPopup = () => {
               </div>
             </div>
 
-            <div className="ml-auto flex items-center gap-4 mt-12 justify-end">
+            <div className="ml-auto flex items-center gap-4 mt-20 justify-end">
               <button
                 className={`${popupBtnStyle}`}
-                onClick={handleInitialState}
+                onClick={() => {
+                  handleReset();
+                  handleOpenPopup();
+                }}
               >
                 Cancel
               </button>
               <button
                 className={`bg-purple ${popupBtnStyle}`}
-                onClick={handleInitialState}
+                onClick={() => {
+                  handleSave();
+                  handleReset();
+                  handleOpenPopup();
+                }}
               >
                 Save
               </button>

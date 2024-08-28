@@ -1,12 +1,22 @@
+import { useDispatch } from "react-redux";
 import { useAppState } from "../../../";
 import { statuses } from "../../../data/dummy";
+import { setStatus, setStatusColor } from "../../../store";
 
 const SelectStatus = () => {
-  const { handleSelectedStatus, handleStatusColor, handleStatusPopup } =
-    useAppState();
+  const dispatch = useDispatch();
+  const { handleStatusPopup } = useAppState();
+
+  const handleCurrentStatus = (status) => {
+    dispatch(setStatus(status));
+  };
+  const handleCurrentColor = (color) => {
+    dispatch(setStatusColor(color));
+  };
+
   return (
     <div
-      className={`absolute right-0 -bottom-[115px] duration-300 origin-top-right rounded-[10px] border border-lightGray py-2 px-3 bg-darkGray w-full`}
+      className={`absolute right-0 -bottom-[138px] duration-300 origin-top-right rounded-[10px] border border-lightGray py-2 px-3 bg-darkGray w-full`}
     >
       <ul>
         {statuses.map((status) => (
@@ -15,8 +25,8 @@ const SelectStatus = () => {
             className={`text-${status.color} flex items-center gap-3 cursor-pointer`}
             onClick={() => {
               handleStatusPopup();
-              handleSelectedStatus(status.name);
-              handleStatusColor(status.color);
+              handleCurrentStatus(status.name);
+              handleCurrentColor(status.color);
             }}
           >
             {/* {<status.icon />} */}
