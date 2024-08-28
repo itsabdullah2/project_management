@@ -3,8 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   title: "",
   description: "",
-  priority: "Select Priority",
-  status: "Select Status",
+  priority: {
+    name: "Select Priority",
+    color: "gray",
+  },
+  status: {
+    name: "Select Status",
+    color: "gray",
+  },
 };
 
 const popupFormSlice = createSlice({
@@ -18,14 +24,26 @@ const popupFormSlice = createSlice({
       state.description = action.payload;
     },
     setPriority(state, action) {
-      state.priority = action.payload;
+      state.priority.name = action.payload;
     },
     setStatus(state, action) {
-      state.status = action.payload;
+      state.status.name = action.payload;
+    },
+    setStatusColor(state, action) {
+      state.status.color = action.payload;
+    },
+    reset(state, action) {
+      return initialState;
     },
   },
 });
 
-export const { addTitle, addDescription, setPriority, setStatus } =
-  popupFormSlice.actions;
+export const {
+  addTitle,
+  addDescription,
+  setPriority,
+  setStatus,
+  reset,
+  setStatusColor,
+} = popupFormSlice.actions;
 export const formReducer = popupFormSlice.reducer;
