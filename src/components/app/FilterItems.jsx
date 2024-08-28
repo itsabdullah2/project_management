@@ -3,11 +3,11 @@ import { FaSort, FaSortDown } from "react-icons/fa";
 import { styleFilterSection } from "../../data/dummy";
 import { useAppState } from "../../";
 
-const FilterItems = () => {
+const FilterItems = ({ className }) => {
   const { sorted, handleSort, handleOpenPopup } = useAppState();
 
   return (
-    <div className="mt-14">
+    <div className={`mt-14 ${className}`}>
       <div className="flex items-center justify-between">
         <div
           className={`${styleFilterSection} border-lightGray`}
