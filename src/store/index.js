@@ -5,6 +5,8 @@ import {
   addDescription,
   setPriority,
   setStatus,
+  reset,
+  setStatusColor,
 } from "./slices/popupFormSlice";
 
 const store = configureStore({
@@ -13,4 +15,12 @@ const store = configureStore({
   },
 });
 
-export { store, addTitle, addDescription, setPriority, setStatus };
+export {
+  store,
+  addTitle,
+  addDescription,
+  setPriority,
+  setStatus,
+  reset,
+  setStatusColor,
+};
