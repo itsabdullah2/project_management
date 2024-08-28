@@ -13,6 +13,7 @@ const colors = {
   normal: "rgb(22 163 74)",
   medium: "rgb(234 88 12)",
   low: "rgb(37 99 235)",
+  overlay: "hsl(0deg 0% 0% / 70.5%)",
 };
 
 export default {
@@ -30,6 +31,9 @@ export default {
         "2xl": { min: "1440px" },
       },
       fontFamily: {},
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
     },
   },
   plugins: [],
