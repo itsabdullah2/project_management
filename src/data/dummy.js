@@ -35,11 +35,6 @@ export const dropdownBtn =
 
 export const pagesLinks = [
   {
-    link: "/app/calender",
-    icon: IoCalendar,
-    name: "Calendar",
-  },
-  {
     link: "/app/board",
     icon: FaFolder,
     name: "Board",
@@ -50,15 +45,20 @@ export const pagesLinks = [
     name: "List",
   },
   {
+    link: "/app/calender",
+    icon: IoCalendar,
+    name: "Calendar",
+  },
+  {
     link: "/app/my-tasks",
     icon: FaTasks,
     name: "My Tasks",
   },
-  {
-    link: "/app/inbox",
-    icon: FaInbox,
-    name: "Inbox",
-  },
+  // {
+  //   link: "/app/inbox",
+  //   icon: FaInbox,
+  //   name: "Inbox",
+  // },
 ];
 
 export const statuses = [
