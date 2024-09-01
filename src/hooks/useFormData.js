@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addTitle, addDescription, reset } from "../store";
+import { addTitle, addDescription, reset, addTask } from "../store";
 
 const useFormData = () => {
   const dispatch = useDispatch();
@@ -7,9 +7,10 @@ const useFormData = () => {
   const title = useSelector((state) => state.form.title);
   const description = useSelector((state) => state.form.description);
   const priorityName = useSelector((state) => state.form.priority.name);
-  const priorityColor = useSelector((state) => state.form.priority.name);
+  const priorityColor = useSelector((state) => state.form.priority.color);
   const statusName = useSelector((state) => state.form.status.name);
   const statusColor = useSelector((state) => state.form.status.color);
+  const listOfTasks = useSelector((state) => state.task.data);
 
   const handleAddTitle = (event) => {
     dispatch(addTitle(event.target.value));
@@ -20,7 +21,29 @@ const useFormData = () => {
   const handleReset = () => {
     dispatch(reset());
   };
-  const handleSave = () => {};
+
+  const handleAddTask = () => {
+    if (!title || !description) return;
+
+    const newTask = {
+      title,
+      description,
+      priority: {
+        name: priorityName,
+        color: priorityColor,
+      },
+      status: {
+        name: statusName,
+        color: statusColor,
+      },
+    };
+
+    const result = dispatch(addTask(newTask));
+
+    console.log(result);
+    console.log(newTask);
+    console.log(listOfTasks);
+  };
 
   return {
     title,
@@ -32,7 +55,8 @@ const useFormData = () => {
     handleAddTitle,
     handleAddDescription,
     handleReset,
-    handleSave,
+    listOfTasks,
+    handleAddTask,
   };
 };
 
