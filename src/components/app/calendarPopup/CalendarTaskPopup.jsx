@@ -18,7 +18,7 @@ const CalendarTaskPopup = () => {
     handleAddTitle,
     handleAddDescription,
     handleReset,
-    handleSave,
+    handleAddTask,
   } = useFormData();
   const {
     isPopupOpen,
@@ -33,8 +33,8 @@ const CalendarTaskPopup = () => {
     <>
       {isPopupOpen && (
         <>
-          <div className="absolute left-0 top-0 w-full h-full bg-black opacity-50" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-offWhite bg-gray rounded-2xl px-5 py-8 w-[500px]">
+          <div className="absolute left-0 top-0 w-full z-20 h-full bg-black opacity-50" />
+          <div className="absolute top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 text-offWhite bg-gray rounded-2xl px-5 py-8 w-[500px]">
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-1">
                 <label htmlFor="title" className="">
@@ -130,9 +130,9 @@ const CalendarTaskPopup = () => {
               <button
                 className={`bg-purple ${popupBtnStyle}`}
                 onClick={() => {
-                  handleSave();
                   handleReset();
                   handleOpenPopup();
+                  handleAddTask();
                 }}
               >
                 Save
