@@ -17,14 +17,11 @@ const Board = () => {
     >
       <AppNavbar />
       <FilterItems />
-      <div className={`grid grid-cols-10 gap-2 mt-5`}>
-        <TaskForm />
-        <TaskForm />
-        <TaskForm />
-        <TaskForm />
+      <div className={`grid grid-cols-10 gap-2 mt-5`}></div>
+      {isPopupOpen && <CalendarTaskPopup />}
+      <div className="grid grid-cols-10 gap-2">
         <TaskForm />
       </div>
-      {isPopupOpen && <CalendarTaskPopup />}
     </div>
   );
 };
