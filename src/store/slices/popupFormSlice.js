@@ -26,6 +26,9 @@ const popupFormSlice = createSlice({
     setPriority(state, action) {
       state.priority.name = action.payload;
     },
+    setPriorityColor(state, action) {
+      state.priority.color = action.payload;
+    },
     setStatus(state, action) {
       state.status.name = action.payload;
     },
@@ -45,5 +48,6 @@ export const {
   setStatus,
   reset,
   setStatusColor,
+  setPriorityColor,
 } = popupFormSlice.actions;
 export const formReducer = popupFormSlice.reducer;
