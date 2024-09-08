@@ -6,6 +6,8 @@ export const AppStateProvider = ({ children }) => {
   const [sorted, setSorted] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isTopicOpen, setIsTopicOpen] = useState(false);
+  const [selectedTopic, setSelectedTopic] = useState("Select Topic");
   const [isPriorityOpen, setIsPriorityOpen] = useState(false);
   const [selectedPriority, setSelectedPriority] = useState("Select Priority");
   const [priorityColor, setPriorityColor] = useState("");
@@ -13,26 +15,17 @@ export const AppStateProvider = ({ children }) => {
   const [selectedStatus, setSelectedStatus] = useState("Select Status");
   const [statusColor, setStatusColor] = useState("");
 
-  const handleOpenPopup = () => {
-    setIsPopupOpen((prev) => !prev);
+  const handleOpenAndClose = (fun) => {
+    fun((prev) => !prev);
   };
-  const handleSort = () => {
-    setSorted((prev) => !prev);
-  };
-  const handleSidebar = () => {
-    setIsSidebarOpen((prev) => !prev);
-  };
-  const handlePriorityPopup = () => {
-    setIsPriorityOpen((prev) => !prev);
+  const handleSelectedItem = (fun, topic) => {
+    fun(topic);
   };
   const handleSelectedPriority = (priority) => {
     setSelectedPriority(priority);
   };
   const handlePriorityColor = (color) => {
     setPriorityColor(color);
-  };
-  const handleStatusPopup = () => {
-    setIsStatusOpen((prev) => !prev);
   };
   const handleSelectedStatus = (status) => {
     setSelectedStatus(status);
@@ -42,7 +35,7 @@ export const AppStateProvider = ({ children }) => {
   };
 
   const handleInitialState = () => {
-    handleOpenPopup();
+    setIsPopupOpen(false);
     handleStatusColor("");
     handlePriorityColor("");
     handleSelectedPriority("Select Priority");
@@ -54,23 +47,29 @@ export const AppStateProvider = ({ children }) => {
       value={{
         sorted,
         isPopupOpen,
-        handleOpenPopup,
-        handleSort,
         isSidebarOpen,
-        handleSidebar,
-        handlePriorityPopup,
         isPriorityOpen,
         selectedPriority,
         handleSelectedPriority,
         priorityColor,
         handlePriorityColor,
-        handleStatusPopup,
         handleSelectedStatus,
         handleStatusColor,
+        setIsStatusOpen,
+        setIsPriorityOpen,
         isStatusOpen,
         selectedStatus,
         statusColor,
         handleInitialState,
+        handleOpenAndClose,
+        handleSelectedItem,
+        isTopicOpen,
+        setIsTopicOpen,
+        selectedTopic,
+        setSelectedTopic,
+        setSorted,
+        setIsPopupOpen,
+        setIsSidebarOpen,
       }}
     >
       {children}
