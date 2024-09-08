@@ -8,9 +8,17 @@ import {
   reset,
   setStatusColor,
   setPriorityColor,
-} from "./slices/popupFormSlice";
+  addTopic,
+} from "./slices/board/popupFormSlice";
 
-import { addTask, taskReducer } from "./slices/taskSlice";
+import {
+  addTask,
+  taskReducer,
+  addTasksHolder,
+  setTopic,
+  resetTopic,
+  removeTask,
+} from "./slices/board/taskSlice";
 
 const store = configureStore({
   reducer: {
@@ -29,4 +37,9 @@ export {
   setStatusColor,
   setPriorityColor,
   addTask,
+  addTopic,
+  addTasksHolder,
+  setTopic,
+  resetTopic,
+  removeTask,
 };
