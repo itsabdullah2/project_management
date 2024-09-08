@@ -13,3 +13,16 @@
 body {
   font-family: "Inter", sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  /* display: none; */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #455ce9;
+  border-radius: 4px;
+}
+::selection {
+  background-color: #455ce9;
+  color: #fbfbfb;
+}
