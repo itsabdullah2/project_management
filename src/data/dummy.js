@@ -14,7 +14,7 @@ export const stylingPath =
   "before:absolute before:left-0 before:-bottom-[30px] before:w-[2px] before:h-[25px] before:bg-gray after:absolute after:left-[2px] after:-bottom-[30px] after:w-[30px] after:h-[2px] after:bg-gray";
 
 export const styleFilterSection =
-  "text-offWhite bg-gray border rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-2 active:scale-[0.9] duration-300 select-none";
+  "text-offWhite bg-gray border rounded-[10px] px-4 py-2 cursor-pointer flex items-center gap-2 active:translate-x-[2px] duration-100 select-none";
 
 export const stylePseudoInLi =
   "before:absolute before:left-0 before:-bottom-[20px] before:bg-gray before:w-full before:h-2";
@@ -28,10 +28,10 @@ export const inputStyles =
   "px-2 py-3 rounded-[10px] border border-lightGray w-full focus:outline-none focus:placeholder:opacity-0 placeholder:duration-300 placeholder:text-sm bg-transparent text-sm";
 
 export const popupBtnStyle =
-  "py-2 px-3 border text-offWhite border-purple rounded-[10px] active:scale-[0.9] duration-300";
+  "py-2 px-3 border text-offWhite border-purple rounded-[10px] active:translate-x-[2px] duration-300";
 
 export const dropdownBtn =
-  "flex items-center justify-between text-sm text-lightGray text-left border rounded-[10px] py-2 px-3 active:scale-[0.9] duration-300";
+  "flex items-center justify-between text-sm text-lightGray text-left border rounded-[10px] py-2 px-3 active:translate-x-[2px] duration-300";
 
 export const pagesLinks = [
   {
@@ -104,5 +104,17 @@ export const priorities = [
     name: "Low",
     icon: IoBookmarkOutline,
     color: "low",
+  },
+];
+
+export const topics = [
+  {
+    name: "To do",
+  },
+  {
+    name: "Doing",
+  },
+  {
+    name: "Done",
   },
 ];
