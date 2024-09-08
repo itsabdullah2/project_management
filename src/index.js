@@ -13,14 +13,16 @@ import FilterItems from "./components/app/FilterItems";
 import Calender from "./components/app/Calender";
 import CalenderStructure from "./components/app/CalenderStructure";
 import StateBar from "./components/app/StateBar";
-import CalendarTaskPopup from "./components/app/calendarPopup/CalendarTaskPopup";
-import SelectPriority from "./components/app/calendarPopup/SelectPriority";
-import SelectStatus from "./components/app/calendarPopup/SelectStatus";
+import AddTaskPopup from "./components/app/taskPopup/AddTaskPopup";
+import SelectPriority from "./components/app/taskPopup/SelectPriority";
+import SelectStatus from "./components/app/taskPopup/SelectStatus";
+import SelectTopic from "./components/app/taskPopup/SelectTopic";
 import Board from "./components/app/Board";
 import List from "./components/app/List";
 import MyTask from "./components/app/MyTask";
 import WorkingOnIt from "./components/WorkingOnIt";
 import TaskForm from "./components/app/TaskForm";
+import TasksHolder from "./components/app/TasksHolder";
 // Import App Pages
 import CalenderPage from "./pages/app/CalenderPage";
 import BoardPage from "./pages/app/BoardPage";
@@ -35,6 +37,7 @@ import { styleLinksInNav, hoverStyling } from "./data/dummy";
 
 // Import Custom Hook
 import useFormData from "./hooks/useFormData";
+import useAddTopic from "./hooks/useAddTopic";
 
 export {
   Home,
@@ -53,7 +56,7 @@ export {
   CalenderStructure,
   StateBar,
   useAppState,
-  CalendarTaskPopup,
+  AddTaskPopup,
   SelectPriority,
   SelectStatus,
   useFormData,
@@ -65,4 +68,7 @@ export {
   MyTaskPage,
   WorkingOnIt,
   TaskForm,
+  SelectTopic,
+  TasksHolder,
+  useAddTopic,
 };
