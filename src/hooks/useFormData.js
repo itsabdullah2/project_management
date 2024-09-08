@@ -1,5 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addTitle, addDescription, reset, addTask } from "../store";
+import {
+  addTitle,
+  addDescription,
+  reset,
+  addTask,
+  addTasksHolder,
+  resetTopic,
+} from "../store";
+import { nanoid } from "nanoid";
 
 const useFormData = () => {
   const dispatch = useDispatch();
@@ -10,7 +18,7 @@ const useFormData = () => {
   const priorityColor = useSelector((state) => state.form.priority.color);
   const statusName = useSelector((state) => state.form.status.name);
   const statusColor = useSelector((state) => state.form.status.color);
-  const listOfTasks = useSelector((state) => state.task.data);
+  const listOfTasks = useSelector((state) => state.task.tasks);
 
   const handleAddTitle = (event) => {
     dispatch(addTitle(event.target.value));
@@ -26,6 +34,7 @@ const useFormData = () => {
     if (!title || !description) return;
 
     const newTask = {
+      id: nanoid(),
       title,
       description,
       priority: {
@@ -38,11 +47,7 @@ const useFormData = () => {
       },
     };
 
-    const result = dispatch(addTask(newTask));
-
-    console.log(result);
-    console.log(newTask);
-    console.log(listOfTasks);
+    dispatch(addTask(newTask));
   };
 
   return {
