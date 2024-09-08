@@ -14,7 +14,7 @@ import {
 import { useAppState } from "../../";
 
 const Sidebar = ({ className }) => {
-  const { isSidebarOpen, handleSidebar } = useAppState();
+  const { isSidebarOpen, handleOpenAndClose, setIsSidebarOpen } = useAppState();
 
   return (
     <div
@@ -28,7 +28,7 @@ const Sidebar = ({ className }) => {
           <IoMenu
             size={30}
             className="cursor-pointer hover:text-offWhite duration-300"
-            onClick={handleSidebar}
+            onClick={() => handleOpenAndClose(setIsSidebarOpen)}
           />
         </div>
 
