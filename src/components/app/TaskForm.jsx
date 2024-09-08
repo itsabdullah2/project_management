@@ -1,17 +1,29 @@
-import { RxDragHandleDots2 } from "react-icons/rx";
+import { RxDragHandleDots2, RxTrash } from "react-icons/rx";
 import { useFormData } from "../../";
+import { useDispatch } from "react-redux";
+import { removeTask } from "../../store";
 
 const TaskForm = ({ className }) => {
   const { listOfTasks, priorityColor, statusColor } = useFormData();
 
+  const dispatch = useDispatch();
+  const handleRemoveTask = (id) => {
+    dispatch(removeTask(id));
+  };
+
   return listOfTasks.map((task, i) => (
-    <div
-      key={i}
-      className={`${className} col-span-2 bg-gray p-4 rounded-[10px]`}
-    >
-      <span className="text-xl text-offWhite mb-2 block cursor-grab w-fit">
-        <RxDragHandleDots2 />
-      </span>
+    <div key={i} className={`${className} col-span-2 bg-gray p-4 rounded-xl`}>
+      <div className="flex items-center justify-between">
+        <span className="text-xl text-offWhite mb-2 block cursor-grab w-fit rotate-90">
+          <RxDragHandleDots2 />
+        </span>
+        <span
+          className="text-xl text-offWhite cursor-pointer active:translate-x-[2px] duration-100"
+          onClick={() => handleRemoveTask(task.id)}
+        >
+          <RxTrash />
+        </span>
+      </div>
       <h3 className="text-offWhite text-[17px]">{task.title}</h3>
       <p className="text-sm text-lightGray">{task.description}</p>
       <div className="mt-3 flex items-center gap-2">
