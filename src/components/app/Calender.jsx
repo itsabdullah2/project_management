@@ -3,7 +3,7 @@ import {
   FilterItems,
   CalenderStructure,
   useAppState,
-  CalendarTaskPopup,
+  AddTaskPopup,
   WorkingOnIt,
 } from "../../";
 
@@ -19,7 +19,7 @@ const Calender = () => {
       <AppNavbar />
       <FilterItems />
       {/* <CalenderStructure /> */}
-      {/* {isPopupOpen && <CalendarTaskPopup />} */}
+      {/* {isPopupOpen && <AddTaskPopup />} */}
       <WorkingOnIt />
     </div>
   );
