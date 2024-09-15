@@ -14,6 +14,7 @@ export const AppStateProvider = ({ children }) => {
   const [isStatusOpen, setIsStatusOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("Select Status");
   const [statusColor, setStatusColor] = useState("");
+  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
 
   const handleOpenAndClose = (fun) => {
     fun((prev) => !prev);
@@ -70,6 +71,8 @@ export const AppStateProvider = ({ children }) => {
         setSorted,
         setIsPopupOpen,
         setIsSidebarOpen,
+        isOptionsOpen,
+        setIsOptionsOpen,
       }}
     >
       {children}
