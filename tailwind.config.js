@@ -34,9 +34,6 @@ export default {
       animation: {
         "spin-slow": "spin 3s linear infinite",
       },
-      gridColumn: {
-        2: "span 2.5 / span 2.5",
-      },
     },
   },
   plugins: [],
