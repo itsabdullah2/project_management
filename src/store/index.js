@@ -1,4 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
+
+// Imports from PopupFormSlice
 import {
   formReducer,
   addTitle,
@@ -9,26 +11,37 @@ import {
   setStatusColor,
   setPriorityColor,
   addTopic,
-} from "./slices/board/popupFormSlice";
+} from "./slices/popupFormSlice";
 
+// Imports from TaskSlice from Board folder
 import {
-  addTask,
-  taskReducer,
+  addTaskInBoard,
+  boardTaskReducer,
   addTasksHolder,
   setTopic,
   resetTopic,
+  removeTaskFromBoard,
+} from "./slices/board/boardTaskSlice";
+
+// imports from TaskSlice from myTask Folder
+import {
+  addTask,
   removeTask,
-} from "./slices/board/taskSlice";
+  removeAll,
+  taskReducer,
+} from "./slices/myTasks/tasksSlice";
 
 const store = configureStore({
   reducer: {
     form: formReducer,
-    task: taskReducer,
+    task: boardTaskReducer,
+    myTasks: taskReducer,
   },
 });
 
 export {
   store,
+  // actions of the popup form
   addTitle,
   addDescription,
   setPriority,
@@ -36,10 +49,15 @@ export {
   reset,
   setStatusColor,
   setPriorityColor,
-  addTask,
+  // actions of board page
+  addTaskInBoard,
   addTopic,
   addTasksHolder,
   setTopic,
   resetTopic,
+  removeTaskFromBoard,
+  // Actions of my task page
+  addTask,
   removeTask,
+  removeAll,
 };
