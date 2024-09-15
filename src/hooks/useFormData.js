@@ -3,7 +3,7 @@ import {
   addTitle,
   addDescription,
   reset,
-  addTask,
+  addTaskInBoard,
   addTasksHolder,
   resetTopic,
 } from "../store";
@@ -19,6 +19,7 @@ const useFormData = () => {
   const statusName = useSelector((state) => state.form.status.name);
   const statusColor = useSelector((state) => state.form.status.color);
   const listOfTasks = useSelector((state) => state.task.tasks);
+  const topic = useSelector((state) => state.task.topic);
 
   const handleAddTitle = (event) => {
     dispatch(addTitle(event.target.value));
@@ -35,6 +36,7 @@ const useFormData = () => {
 
     const newTask = {
       id: nanoid(),
+      topic,
       title,
       description,
       priority: {
@@ -47,7 +49,7 @@ const useFormData = () => {
       },
     };
 
-    dispatch(addTask(newTask));
+    dispatch(addTaskInBoard(newTask));
   };
 
   return {
