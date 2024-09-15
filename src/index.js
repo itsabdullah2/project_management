@@ -23,6 +23,7 @@ import MyTask from "./components/app/MyTask";
 import WorkingOnIt from "./components/WorkingOnIt";
 import TaskForm from "./components/app/TaskForm";
 import TasksHolder from "./components/app/TasksHolder";
+import TaskItem from "./components/app/TaskItem";
 // Import App Pages
 import CalenderPage from "./pages/app/CalenderPage";
 import BoardPage from "./pages/app/BoardPage";
@@ -71,4 +72,5 @@ export {
   SelectTopic,
   TasksHolder,
   useAddTopic,
+  TaskItem,
 };
