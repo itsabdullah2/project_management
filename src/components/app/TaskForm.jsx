@@ -1,14 +1,14 @@
 import { RxDragHandleDots2, RxTrash } from "react-icons/rx";
 import { useFormData } from "../../";
 import { useDispatch } from "react-redux";
-import { removeTask } from "../../store";
+import { removeTaskFromBoard } from "../../store";
 
 const TaskForm = ({ className }) => {
   const { listOfTasks, priorityColor, statusColor } = useFormData();
 
   const dispatch = useDispatch();
   const handleRemoveTask = (id) => {
-    dispatch(removeTask(id));
+    dispatch(removeTaskFromBoard(id));
   };
 
   return listOfTasks.map((task, i) => (

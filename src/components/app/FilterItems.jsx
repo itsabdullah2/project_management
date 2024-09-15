@@ -3,7 +3,7 @@ import { FaSort, FaSortDown } from "react-icons/fa";
 import { styleFilterSection } from "../../data/dummy";
 import { useAppState, SelectTopic } from "../../";
 
-const FilterItems = ({ className }) => {
+const FilterItems = ({ className, setState }) => {
   const {
     sorted,
     handleSort,
@@ -30,7 +30,7 @@ const FilterItems = ({ className }) => {
           </div>
           <div
             className={`${styleFilterSection} bg-purple border-purple relative`}
-            onClick={() => handleOpenAndClose(setIsTopicOpen)}
+            onClick={() => handleOpenAndClose(setState)}
           >
             <span className="text-lg font-semibold">+</span>
             <span>New</span>

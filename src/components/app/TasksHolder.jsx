@@ -1,9 +1,11 @@
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { TaskForm, useAppState, useAddTopic } from "../../";
+import { useSelector } from "react-redux";
 
 const TasksHolder = () => {
   const { topicsHolder } = useAddTopic();
   const { handleOpenAndClose, setIsPopupOpen } = useAppState();
+  const tasks = useSelector((state) => state.task.tasks);
 
   return topicsHolder.length > 0
     ? topicsHolder.map((topic, i) => (
