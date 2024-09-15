@@ -1,7 +1,14 @@
-import { useAppState, AppNavbar, WorkingOnIt } from "../../";
+import {
+  useAppState,
+  AppNavbar,
+  WorkingOnIt,
+  FilterItems,
+  TaskItem,
+  AddTaskPopup,
+} from "../../";
 
 const MyTask = () => {
-  const { isSidebarOpen } = useAppState();
+  const { isSidebarOpen, setIsPopupOpen, isPopupOpen } = useAppState();
 
   return (
     <div
@@ -10,7 +17,11 @@ const MyTask = () => {
       }`}
     >
       <AppNavbar />
-      <WorkingOnIt />
+      <FilterItems setState={setIsPopupOpen} />
+      {isPopupOpen && <AddTaskPopup />}
+      <div className="grid grid-cols-9 gap-3 mt-10">
+        <TaskItem />
+      </div>
     </div>
   );
 };
