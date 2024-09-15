@@ -7,7 +7,7 @@ import {
 } from "../../";
 
 const Board = () => {
-  const { isSidebarOpen, isPopupOpen } = useAppState();
+  const { isSidebarOpen, isPopupOpen, setIsTopicOpen } = useAppState();
 
   return (
     <div
@@ -16,7 +16,7 @@ const Board = () => {
       }`}
     >
       <AppNavbar />
-      <FilterItems />
+      <FilterItems setState={setIsTopicOpen} />
       <div className={`grid grid-cols-10 gap-2 mt-5`}></div>
       {isPopupOpen && <AddTaskPopup />}
       <div className="grid grid-cols-10 gap-2">
