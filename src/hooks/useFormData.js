@@ -18,8 +18,7 @@ const useFormData = () => {
   const priorityColor = useSelector((state) => state.form.priority.color);
   const statusName = useSelector((state) => state.form.status.name);
   const statusColor = useSelector((state) => state.form.status.color);
-  const listOfTasks = useSelector((state) => state.task.tasks);
-  const topic = useSelector((state) => state.task.topic);
+  const listOfTasks = useSelector((state) => state.task.tasksHolder);
 
   const handleAddTitle = (event) => {
     dispatch(addTitle(event.target.value));
@@ -31,12 +30,12 @@ const useFormData = () => {
     dispatch(reset());
   };
 
-  const handleAddTask = () => {
+  const handleAddTask = (taskHolder) => {
     if (!title || !description) return;
 
     const newTask = {
-      id: nanoid(),
-      topic,
+      id: nanoid(), // Generate a unique ID
+      topic: taskHolder,
       title,
       description,
       priority: {

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useAppState } from "../../..";
 import { priorities } from "../../../data/dummy";
-import { setPriority } from "../../../store";
+import { setPriority, setPriorityColor } from "../../../store";
 
 const SelectPriority = () => {
   const dispatch = useDispatch();
@@ -10,6 +10,9 @@ const SelectPriority = () => {
 
   const handleCurrentPriority = (name) => {
     dispatch(setPriority(name));
+  };
+  const handleCurrentColor = (color) => {
+    dispatch(setPriorityColor(color));
   };
 
   return (
@@ -24,6 +27,7 @@ const SelectPriority = () => {
             onClick={() => {
               handleOpenAndClose(setIsPriorityOpen);
               handleCurrentPriority(priority.name);
+              handleCurrentColor(priority.color);
             }}
           >
             {<priority.icon className={`text-${priority.color}`} />}

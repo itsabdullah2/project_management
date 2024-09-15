@@ -20,7 +20,6 @@ const AddTaskPopup = () => {
     handleAddDescription,
     handleReset,
     handleAddTask,
-    topic,
   } = useFormData();
   const {
     isPopupOpen,
@@ -29,9 +28,8 @@ const AddTaskPopup = () => {
     setIsPopupOpen,
     handleOpenAndClose,
     setIsPriorityOpen,
-    setIsTopicOpen,
     setIsStatusOpen,
-    isTopicOpen,
+    selectedTopic,
   } = useAppState();
 
   return (
@@ -137,7 +135,7 @@ const AddTaskPopup = () => {
                 onClick={() => {
                   handleReset();
                   handleOpenAndClose(setIsPopupOpen);
-                  handleAddTask();
+                  handleAddTask(selectedTopic);
                 }}
               >
                 Save

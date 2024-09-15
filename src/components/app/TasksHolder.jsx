@@ -1,11 +1,12 @@
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { TaskForm, useAppState, useAddTopic } from "../../";
+import { TaskForm, useAppState, useAddTopic, useFormData } from "../../";
 import { useSelector } from "react-redux";
 
 const TasksHolder = () => {
   const { topicsHolder } = useAddTopic();
-  const { handleOpenAndClose, setIsPopupOpen } = useAppState();
-  const tasks = useSelector((state) => state.task.tasks);
+  const { handleOpenAndClose, setIsPopupOpen, setSelectedTopic } =
+    useAppState();
+  const { listOfTasks } = useFormData();
 
   return topicsHolder.length > 0
     ? topicsHolder.map((topic, i) => (
@@ -20,12 +21,15 @@ const TasksHolder = () => {
             </span>
           </div>
           <div className="flex-1 flex flex-col gap-2 max-h-[600px] overflow-y-auto pr-2">
-            <TaskForm />
+            <TaskForm listOfTasks={listOfTasks[topic] || []} topic={topic} />
           </div>
           <button
             type="button"
             className="bg-gray text-center mt-3 rounded-xl py-3 text-offWhite duration-100 active:translate-x-[2px]"
-            onClick={() => handleOpenAndClose(setIsPopupOpen)}
+            onClick={() => {
+              handleOpenAndClose(setIsPopupOpen);
+              setSelectedTopic(topic);
+            }}
           >
             + Add New Task
           </button>

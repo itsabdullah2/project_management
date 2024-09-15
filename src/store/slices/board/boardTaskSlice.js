@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { nanoid } from "nanoid";
 
 const initialState = {
-  tasks: [],
+  tasksHolder: {},
   topicsHolder: [],
   topic: "",
 };
@@ -12,7 +13,11 @@ const taskSlice = createSlice({
   reducers: {
     addTaskInBoard(state, action) {
       const { title, description, priority, status, topic } = action.payload;
-      state.tasks.push({
+      if (!state.tasksHolder[topic]) {
+        // state.tasksHolder[topic] = [];
+        return;
+      }
+      state.tasksHolder[topic].push({
         title,
         description,
         priority: {
@@ -23,18 +28,20 @@ const taskSlice = createSlice({
           name: status.name,
           color: status.color,
         },
-        topic,
       });
     },
     removeTaskFromBoard(state, action) {
-      const index = state.tasks.findIndex((task) => task.id === action.payload);
-      if (index !== -1) {
-        state.tasks.splice(index, 1);
+      const { topic, taskId } = action.payload;
+      if (state.tasksHolder[topic]) {
+        state.tasksHolder[topic] = state.tasksHolder[topic].filter(
+          (task) => task.id !== taskId
+        );
       }
     },
     addTasksHolder(state, action) {
       if (!state.topicsHolder.includes(action.payload)) {
         state.topicsHolder.push(action.payload);
+        state.tasksHolder[action.payload] = [];
       }
     },
     setTopic(state, action) {
