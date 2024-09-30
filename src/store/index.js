@@ -21,6 +21,7 @@ import {
   setTopic,
   resetTopic,
   removeTaskFromBoard,
+  removeTasksHolder,
 } from "./slices/board/boardTaskSlice";
 
 // imports from TaskSlice from myTask Folder
@@ -53,6 +54,7 @@ export {
   addTaskInBoard,
   addTopic,
   addTasksHolder,
+  removeTasksHolder,
   setTopic,
   resetTopic,
   removeTaskFromBoard,
