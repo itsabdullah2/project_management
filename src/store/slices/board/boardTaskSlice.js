@@ -14,8 +14,7 @@ const taskSlice = createSlice({
     addTaskInBoard(state, action) {
       const { title, description, priority, status, topic } = action.payload;
       if (!state.tasksHolder[topic]) {
-        // state.tasksHolder[topic] = [];
-        return;
+        state.tasksHolder[topic] = [];
       }
       state.tasksHolder[topic].push({
         title,
@@ -39,10 +38,19 @@ const taskSlice = createSlice({
       }
     },
     addTasksHolder(state, action) {
-      if (!state.topicsHolder.includes(action.payload)) {
-        state.topicsHolder.push(action.payload);
-        state.tasksHolder[action.payload] = [];
+      const isTasksHolderExists = state.topicsHolder.find(
+        (item) => item.name === action.payload
+      );
+      if (!isTasksHolderExists) {
+        const newTopic = { name: action.payload, id: nanoid() }; // Generate an unique ID
+        state.topicsHolder.push(newTopic);
       }
+      return;
+    },
+    removeTasksHolder(state, action) {
+      state.topicsHolder = state.topicsHolder.filter(
+        (item) => item.id !== action.payload
+      );
     },
     setTopic(state, action) {
       state.topic = action.payload;
@@ -59,5 +67,6 @@ export const {
   setTopic,
   resetTopic,
   removeTaskFromBoard,
+  removeTasksHolder,
 } = taskSlice.actions;
 export const boardTaskReducer = taskSlice.reducer;
