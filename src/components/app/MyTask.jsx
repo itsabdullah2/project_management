@@ -12,7 +12,7 @@ const MyTask = () => {
 
   return (
     <div
-      className={`h-screen bg-veryDarkGray px-6 relative ${
+      className={`h-screen bg-veryDarkGray px-6 ${
         isSidebarOpen ? "col-span-10" : "col-span-11"
       }`}
     >
