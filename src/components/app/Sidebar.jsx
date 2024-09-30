@@ -3,6 +3,7 @@ import {
   IoSettingsOutline,
   IoLogInOutline,
   IoLogOutOutline,
+  IoHome,
 } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import {
@@ -67,10 +68,10 @@ const Sidebar = ({ className }) => {
             <span>Settings</span>
           </li>
         </Link>
-        <Link to="#">
+        <Link to="/">
           <li className={`${liStyling}`}>
-            <IoLogInOutline />
-            <span>LogIn</span>
+            <IoHome />
+            <span>Home</span>
           </li>
         </Link>
       </ul>
