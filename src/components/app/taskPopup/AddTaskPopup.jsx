@@ -9,7 +9,7 @@ import {
 import { inputStyles, popupBtnStyle, dropdownBtn } from "../../../data/dummy";
 // import { useState } from "react";
 
-const AddTaskPopup = () => {
+const AddTaskPopup = ({ inMyTask, inBoard }) => {
   // const [selectedTime, setSelectedTime] = useState();
   // console.log("Time Selected is:", selectedTime);
   const {
@@ -23,6 +23,9 @@ const AddTaskPopup = () => {
     handleAddDescription,
     handleReset,
     handleAddTask,
+    handleAddTaskInMyTasks,
+    handleAddTaskTitle,
+    taskTitle,
   } = useFormData();
   const {
     isPopupOpen,
@@ -159,7 +162,7 @@ const AddTaskPopup = () => {
                   handleAddTask(selectedTopic);
                 }}
               >
-                Save
+                Add Task
               </button>
             </div>
           </div>

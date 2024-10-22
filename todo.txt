@@ -1,0 +1,36 @@
+// TODO for adding task in the board page
+
+// Add topic selection in the popup
+// Popup will open when click on "Add New Task" Default fields for adding a task
+// Drag and Drop
+
+// LOGIC of adding a task from the main btn:
+- If the user added a task by the main btn which is the user should specify where this task will go => for ex: if user selected ToDo the task will go to the ToDo list.
+- If the user added a task by the sub btn which is from a specific list then the task will be added there
+
+///////////////////////////////
+
+Unused code
+
+  <div className="flex-1 flex flex-col gap-1 relative">
+      <div>Topic</div>
+      <button
+        className={`${dropdownBtn} border-${priorityColor}`}
+        onClick={() => handleOpenAndClose(setIsTopicOpen)}
+      >
+        <span>{topic}</span>
+        {isTopicOpen ? (
+          <FaCaretDown size={20} />
+        ) : (
+          <FaCaretUp size={20} />
+        )}
+      </button>
+      {isTopicOpen && <SelectTopic />}
+  </div>
+
+///////////////////////////
+=> Popup Options
+{isOptionsOpen && (
+  <div
+    className={`absolute -right-[150px] top-[30px] rounded-lg py-3 px-4 bg-gray w-36 origin-bottom-left`}>{content}</div>
+)}

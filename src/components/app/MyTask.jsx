@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   useAppState,
   AppNavbar,
@@ -8,6 +9,7 @@ import {
 } from "../../";
 
 const MyTask = () => {
+  const tasksList = useSelector((state) => state.myTasks.tasks);
   const { isSidebarOpen, setIsPopupOpen, isPopupOpen } = useAppState();
 
   return (
@@ -18,9 +20,9 @@ const MyTask = () => {
     >
       <AppNavbar />
       <FilterItems setState={setIsPopupOpen} />
-      {isPopupOpen && <AddTaskPopup />}
+      {isPopupOpen && <AddTaskPopup inMyTask />}
       <div className="grid grid-cols-9 gap-3 mt-10">
-        <TaskItem />
+        <TaskItem tasks={tasksList} />
       </div>
     </div>
   );
