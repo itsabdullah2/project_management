@@ -21,6 +21,7 @@ import {
   setTopic,
   resetTopic,
   removeTaskFromBoard,
+  removeTasksHolder,
 } from "./slices/board/boardTaskSlice";
 
 // imports from TaskSlice from myTask Folder
@@ -31,11 +32,23 @@ import {
   taskReducer,
 } from "./slices/myTasks/tasksSlice";
 
+import {
+  addTaskTitle,
+  addTaskTimeFrom,
+  addTaskTimeTo,
+  addTaskPriorityName,
+  addTaskPriorityColor,
+  addTaskIsChecked,
+  resetInMyTasks,
+  taskFormReducer,
+} from "./slices/myTasks/taskFormSlice";
+
 const store = configureStore({
   reducer: {
     form: formReducer,
     task: boardTaskReducer,
     myTasks: taskReducer,
+    taskForm: taskFormReducer,
   },
 });
 
@@ -53,6 +66,7 @@ export {
   addTaskInBoard,
   addTopic,
   addTasksHolder,
+  removeTasksHolder,
   setTopic,
   resetTopic,
   removeTaskFromBoard,
@@ -60,4 +74,11 @@ export {
   addTask,
   removeTask,
   removeAll,
+  addTaskTitle,
+  addTaskTimeFrom,
+  addTaskTimeTo,
+  addTaskPriorityName,
+  addTaskPriorityColor,
+  addTaskIsChecked,
+  resetInMyTasks,
 };

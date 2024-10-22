@@ -14,7 +14,7 @@ const SelectTopic = () => {
 
   return (
     <div
-      className={`absolute right-0 -bottom-[145px] w-[200px] duration-300 origin-top-right rounded-[10px] border border-lightGray py-2 px-3 bg-darkGray`}
+      className={`absolute right-0 -bottom-[145px] z-10 w-[200px] duration-300 origin-top-right rounded-[10px] border border-lightGray py-2 px-3 bg-darkGray`}
     >
       <ul className="mb-3">
         {topics.map((topic) => (

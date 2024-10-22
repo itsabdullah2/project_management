@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addTasksHolder, resetTopic } from "../store";
+import { addTasksHolder, resetTopic, removeTasksHolder } from "../store";
 
 const useAddTopic = () => {
   const dispatch = useDispatch();
@@ -17,11 +17,21 @@ const useAddTopic = () => {
 
     dispatch(addTasksHolder(topic));
   };
+
+  const handleDeleteTasksHolder = (id) => {
+    dispatch(removeTasksHolder(id));
+  };
   const handleResetTopic = () => {
     dispatch(resetTopic());
   };
 
-  return { topicsHolder, topic, handleAddTasksHolder, handleResetTopic };
+  return {
+    topicsHolder,
+    topic,
+    handleAddTasksHolder,
+    handleDeleteTasksHolder,
+    handleResetTopic,
+  };
 };
 
 export default useAddTopic;

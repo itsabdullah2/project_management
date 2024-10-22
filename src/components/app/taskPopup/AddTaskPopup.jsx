@@ -1,14 +1,17 @@
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import {
   SelectPriority,
   SelectStatus,
   useAppState,
   useFormData,
-  SelectTopic,
 } from "../../..";
 import { inputStyles, popupBtnStyle, dropdownBtn } from "../../../data/dummy";
+// import { useState } from "react";
 
-const AddTaskPopup = () => {
+const AddTaskPopup = ({ inMyTask, inBoard }) => {
+  // const [selectedTime, setSelectedTime] = useState();
+  // console.log("Time Selected is:", selectedTime);
   const {
     priorityName,
     statusColor,
@@ -20,6 +23,9 @@ const AddTaskPopup = () => {
     handleAddDescription,
     handleReset,
     handleAddTask,
+    handleAddTaskInMyTasks,
+    handleAddTaskTitle,
+    taskTitle,
   } = useFormData();
   const {
     isPopupOpen,
@@ -31,6 +37,27 @@ const AddTaskPopup = () => {
     setIsStatusOpen,
     selectedTopic,
   } = useAppState();
+
+  const MUIInputStyle = {
+    borderColor: "rgb(75 85 99)",
+    borderWidth: "1px",
+    borderStyle: "solid",
+    borderRadius: "6px",
+    "& .MuiInputBase-input": {
+      color: "rgb(75 85 99)",
+    },
+    "& .MuiInputBase-input::focus": {
+      outline: "none",
+    },
+    "& .MuiButtonBase-root": {
+      color: "rgb(75 85 99)",
+    },
+  };
+
+  // const handleTimeChange = (value) => {
+  //   setSelectedTime(value);
+  // console.log(value);
+  // };
 
   return (
     <>
@@ -69,19 +96,16 @@ const AddTaskPopup = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <label htmlFor="date">Date</label>
+                <label htmlFor="date">Time</label>
                 <div className="flex items-center gap-4">
-                  <input
-                    type="text"
-                    placeholder="Add the start date"
-                    className={`${inputStyles}`}
+                  <TimePicker
+                    sx={MUIInputStyle}
+                    style={{ color: "#FBFBFB" }}
+                    // value={selectedTime}
+                    // onChange={handleTimeChange}
                   />
                   <span>To</span>
-                  <input
-                    type="text"
-                    placeholder="Add the expired date"
-                    className={`${inputStyles}`}
-                  />
+                  <TimePicker sx={MUIInputStyle} style={{ color: "#FBFBFB" }} />
                 </div>
               </div>
 
@@ -138,7 +162,7 @@ const AddTaskPopup = () => {
                   handleAddTask(selectedTopic);
                 }}
               >
-                Save
+                Add Task
               </button>
             </div>
           </div>
