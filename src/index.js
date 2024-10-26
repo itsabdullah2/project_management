@@ -24,6 +24,7 @@ import WorkingOnIt from "./components/WorkingOnIt";
 import TaskForm from "./components/app/TaskForm";
 import TasksHolder from "./components/app/TasksHolder";
 import TaskItem from "./components/app/TaskItem";
+import TasksProgress from "./components/app/TasksProgress";
 // Import App Pages
 import CalenderPage from "./pages/app/CalenderPage";
 import BoardPage from "./pages/app/BoardPage";
@@ -73,4 +74,5 @@ export {
   TasksHolder,
   useAddTopic,
   TaskItem,
+  TasksProgress,
 };
