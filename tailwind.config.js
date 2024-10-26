@@ -23,13 +23,13 @@ export default {
       backgroundImage: {},
       backgroundColor: colors,
       colors: colors,
-      screens: {
-        sm: { max: "767px" },
-        md: { min: "768px", max: "991px" },
-        lg: { min: "992px", max: "1199px" },
-        xl: { min: "1200px", max: "1440px" },
-        "2xl": { min: "1440px" },
-      },
+      // screens: {
+      //   sm: { max: "767px" },
+      //   md: { min: "768px", max: "991px" },
+      //   lg: { min: "992px", max: "1199px" },
+      //   xl: { min: "1200px", max: "1440px" },
+      //   "2xl": { min: "1440px" },
+      // },
       fontFamily: {},
       animation: {
         "spin-slow": "spin 3s linear infinite",
