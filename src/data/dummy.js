@@ -8,7 +8,7 @@ export const hoverStyling =
   "before:-top-full before:left-0 before:w-full before:h-full before:rounded-full before:bg-purple before:absolute hover:before:top-0 before:duration-500 before:-z-[1]";
 
 export const styleOfLogo =
-  "block w-12 h-12 rounded-full bg-purple relative before:absolute before:w-8 before:h-8 before:bg-darkGray before:rounded-full before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2";
+  "block sm:w-10 sm:h-10 w-12 h-12 rounded-full bg-purple relative before:absolute sm:before:w-6 sm:before:h-6 before:w-8 before:h-8 before:bg-darkGray before:rounded-full before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2";
 
 export const stylingPath =
   "before:absolute before:left-0 before:-bottom-[30px] before:w-[2px] before:h-[25px] before:bg-gray after:absolute after:left-[2px] after:-bottom-[30px] after:w-[30px] after:h-[2px] after:bg-gray";
@@ -20,7 +20,7 @@ export const stylePseudoInLi =
   "before:absolute before:left-0 before:-bottom-[20px] before:bg-gray before:w-full before:h-2";
 
 export const liStyling =
-  "text-[17px] text-slate-500 font-medium flex items-center gap-2";
+  "text-[17px] text-slate-500 font-medium flex items-center gap-2 hover:text-purple duration-200";
 
 export const titleStyling = "text-offWhite font-medium text-[18px] mb-2";
 

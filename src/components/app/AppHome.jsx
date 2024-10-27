@@ -1,6 +1,8 @@
-import { AppNavbar, FilterItems, useAppState } from "../../";
+import { useState } from "react";
+import { AppNavbar, FilterItems, useAppState, TasksProgress } from "../../";
 
 const AppHome = () => {
+  const [value, setValue] = useState(0);
   const { isSidebarOpen } = useAppState();
 
   return (
@@ -11,6 +13,9 @@ const AppHome = () => {
     >
       <AppNavbar />
       <FilterItems />
+      <div className="mt-5">
+        <TasksProgress />
+      </div>
     </div>
   );
 };
